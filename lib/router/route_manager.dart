@@ -1,5 +1,6 @@
 import 'package:e_commerce/pages/home_page.dart';
 import 'package:e_commerce/pages/login_page.dart';
+import 'package:e_commerce/pages/main_page/ui/main_page.dart';
 import 'package:e_commerce/router/middlewares/auth_middleware.dart';
 import 'package:go_router/go_router.dart';
 
@@ -7,9 +8,9 @@ class RouteManager {
   static final routeConfig = GoRouter(
     routes: [
       GoRoute(
-        name: RouteNames.homePage,
-        path: RouteNames.homePage,
-        builder: (context, state) => const HomePage(),
+        name: RouteNames.mainPage,
+        path: RouteNames.mainPage,
+        builder: (context, state) => const MainPage(),
         redirect: (context, state) => AuthMiddleware.guardWithLogin(),
       ),
       GoRoute(
@@ -22,6 +23,6 @@ class RouteManager {
 }
 
 abstract class RouteNames {
-  static String homePage = "/home";
+  static String mainPage = "/main";
   static String logIn = "/";
 }

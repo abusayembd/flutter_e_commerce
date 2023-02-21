@@ -12,7 +12,7 @@ class AuthMiddleware {
     TokenDatasource tokenDatasource = TokenDatasource(sharedPreferences);
 
     if ((await tokenDatasource.get()) != null) {
-      return RouteNames.homePage;
+      return RouteNames.mainPage;
     }
     return RouteNames.logIn;
   }

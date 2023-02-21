@@ -14,7 +14,7 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    context.goNamed(RouteNames.homePage);
+    context.goNamed(RouteNames.mainPage);
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
@@ -212,7 +212,7 @@ class _LoginSignupFormSection extends StatelessWidget {
                   await Provider.of<AuthProvider>(context, listen: false)
                       .login(username, password);
               if (isLoginSucceed) {
-                context.goNamed(RouteNames.homePage);
+                context.goNamed(RouteNames.mainPage);
               }
             },
             style: ElevatedButton.styleFrom(
