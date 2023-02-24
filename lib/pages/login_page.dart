@@ -1,10 +1,10 @@
 import 'package:e_commerce/core/constaints/my_colors.dart';
+import 'package:e_commerce/core/widgets/my_app_bar.dart';
 import 'package:e_commerce/providers/auth_provider.dart';
 import 'package:e_commerce/router/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart' as http;
 import 'package:provider/provider.dart';
 
 class LoginPage extends StatelessWidget {
@@ -23,7 +23,7 @@ class LoginPage extends StatelessWidget {
             padding: EdgeInsets.only(top: 16.r, left: 24.r, right: 24.r),
             child: Column(
               children: [
-                const _AppBarSection(),
+                const MyAppBar(),
                 const _LogoSection(),
                 _LoginSignupFormSection(),
               ],
@@ -31,50 +31,6 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-class _AppBarSection extends StatelessWidget {
-  const _AppBarSection({
-    super.key,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Row(
-              children: [
-                Text(
-                  "Hello Wellcome",
-                  style: TextStyle(fontSize: 14.sp),
-                ),
-                SizedBox(
-                  height: 21.h,
-                  width: 14.h,
-                  child: Image.asset("assets/graphics/common/wave.png"),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 4.h,
-            ),
-            Text(
-              "Let's Login or Signup",
-              style: TextStyle(fontSize: 16.sp, fontWeight: FontWeight.bold),
-            )
-          ],
-        ),
-        const CircleAvatar(
-          backgroundImage: AssetImage("assets/graphics/common/avater.png"),
-        )
-      ],
     );
   }
 }
@@ -170,18 +126,6 @@ class _LoginSignupFormSection extends StatelessWidget {
               gapPadding: 0.0,
               borderRadius: BorderRadius.circular(8.r),
               borderSide: const BorderSide(color: Colors.transparent, width: 0),
-            ),
-            suffixIcon: GestureDetector(
-              onTap: () {
-                //to do: implement state changes
-                // setState(() {
-                //   _obscureText = !_obscureText;
-                // });
-              },
-              child: Icon(
-                _obscureText ? Icons.visibility : Icons.visibility_off,
-                color: const Color(0xff555957),
-              ),
             ),
           ),
         ),

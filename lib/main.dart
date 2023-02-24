@@ -1,5 +1,5 @@
-import 'package:e_commerce/pages/login_page.dart';
 import 'package:e_commerce/providers/auth_provider.dart';
+import 'package:e_commerce/providers/cart_provider.dart';
 import 'package:e_commerce/router/route_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -18,7 +18,10 @@ class MyApp extends StatelessWidget {
         providers: [
           ChangeNotifierProvider(
             create: (context) => AuthProvider(),
-          )
+          ),
+          ChangeNotifierProvider(
+            create: (context) => CartProvider(),
+          ),
         ],
         child: MaterialApp.router(
           routerConfig: RouteManager.routeConfig,

@@ -6,14 +6,14 @@ import 'package:e_commerce/router/route_manager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class AuthMiddleware {
-  static FutureOr<String> guardWithLogin() async {
+  static FutureOr<String?> guardWithLogin() async {
     SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
 
     TokenDatasource tokenDatasource = TokenDatasource(sharedPreferences);
 
-    if ((await tokenDatasource.get()) != null) {
-      return RouteNames.mainPage;
+    if ((await tokenDatasource.get()) == null) {
+      return RouteNames.logIn;
     }
-    return RouteNames.logIn;
+    return null;
   }
 }
